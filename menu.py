@@ -14,7 +14,8 @@ class Menu:
             "4": self.remove_note,
             "5": self.modify_note,
             "6": self.quit,
-            "7": self.input_error
+            "7": self.update_notes,
+            "8": self.input_error
         }
 
     def display_menu(self):
@@ -64,6 +65,9 @@ class Menu:
 
     def remove_note(self):
         m_id = input("Please enter the note's id you want to remove from notebook ")
+        if not m_id.isdigit():
+            print("Please input digit ")
+            return False
         self.notebook.remove_note(m_id)
         print("Delete success")
 
@@ -75,6 +79,12 @@ class Menu:
             self.notebook.modify_memo(m_id, memo)
         if tags:
             self.notebook.modify_tags(m_id, tags)
+
+    def update_notes(self):
+        m_id = 1
+        for note in self.notebook.notes:
+            note.id = m_id
+            m_id += 1
 
     def quit(self):
         sys.exit(0)
