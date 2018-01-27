@@ -20,7 +20,7 @@ class Menu:
         print("\nMenu is :")
         for key in self.choices:
             if self.choices[key] != self.input_error:
-                print(key + ' ' + str(self.choices[key]))
+                print(key + ' ' + str(self.choices[key].__name__))
 
     def run(self):
         while True:
