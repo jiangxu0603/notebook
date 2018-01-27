@@ -34,6 +34,9 @@ class Notebook:
         """Add a new note to notebook"""
         self.notes.append(Note(memo, tags))
 
+    def remove_note(self, note_id):
+        del self.notes[int(note_id) - 1]
+
     def modify_memo(self, note_id, memo):
         """Change the note's memo with given id"""
         note = self._find_note(note_id)
